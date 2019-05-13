@@ -4,7 +4,7 @@ Project from online course Java In Depth
 # What I learned
 - Java fundamentals
 - SQL database implementation
-- JSP and Servelets
+- JSP and Servlets
 
 # Future of project
 - Implementation of Spring MVC
