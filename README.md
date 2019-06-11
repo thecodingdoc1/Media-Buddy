@@ -1,9 +1,12 @@
-# Thrillio web project
-Project from online course Java In Depth
+# Media Buddy web project
+Simple bookmarking web application.
+Original idea and code from Java in Depth Udemy course.
+Added functionality and customizations to app to personalize it.
 
 # What I learned
 - Java fundamentals
-- SQL database implementation
+- SQL database implementation and utulization
+- JEE and JSE
 - JSP and Servlets
 
 # Future of project
