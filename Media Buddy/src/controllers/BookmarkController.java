@@ -17,7 +17,7 @@ import managers.BookmarkManager;
 import managers.UserManager;
 
 @WebServlet(urlPatterns = {"/bookmark", "/bookmark/savebook", "/bookmark/mybooks", "/bookmark/savemovie", "/bookmark/usmovie", "/bookmark/usbook"})
-public class BookmarkController extends HttpServlet { // woul dbe servlet in real java EE application
+public class BookmarkController extends HttpServlet { 
 	/*private static BookmarkController instance = new BookmarkController();
 	private BookmarkController() {}
 	public static BookmarkController getInstance() {

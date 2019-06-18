@@ -34,9 +34,6 @@ public class UserManager { // typically class name ends with manager or service,
 		
 	}
 	
-	public List<User> getUsers() {
-		return dao.getUsers();
-	}
 	
 	public User getUser(long userId) {
 		return dao.getUser(userId);

@@ -5,9 +5,8 @@ import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
 
 import constants.BookGenre;
-import partner.Shareable;
 
-public class Book extends Bookmark implements Shareable{
+public class Book extends Bookmark implements partners.Shareable{
 	private String title;
 	private int publicationYear;
 	private String publishers;

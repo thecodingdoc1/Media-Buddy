@@ -17,16 +17,11 @@ import entities.Movie;
 import entities.UserBookmark;
 import entities.WebLink;
 import managers.BookmarkManager;
-import thrillio.DataStore;
+
 
 public class BookmarkDao {
-	public List<List<Bookmark>> getBookmarks() {
-		return DataStore.getBookmarks();
-	}
 
 	public void saveUserBookmark(UserBookmark userBookmark) {
-		// typically have SQL or some database request here to access data
-		//DataStore.add(userBookmark);
 		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jid_thrillio?useSSL=false", "root", "root") ;
 				Statement stmt = conn.createStatement()) {
 			if (userBookmark.getBookmark() instanceof Book) {
@@ -65,7 +60,6 @@ public class BookmarkDao {
 	
 	private void unsaveUserMovie(UserBookmark userBookmark, Statement stmt) throws SQLException {
 		
-		
 		String query = "delete from User_Movie where user_id =" + userBookmark.getUser().getId() + " and movie_id= " + userBookmark.getBookmark().getId();
 		stmt.executeUpdate(query);
 		System.out.println("executed delete query in unsaveusermovie");
@@ -94,32 +88,7 @@ public class BookmarkDao {
 		
 	}
 
-	// In real application, we should have SQL or hibernate(another framework for fetching data from database)  queries
-	public List<WebLink> getAllWebLinks() {
-		List<WebLink> result = new ArrayList<>();
-		
-		List<List<Bookmark>> bookmarks = DataStore.getBookmarks();
-		List<Bookmark> allWebLinks = bookmarks.get(0);
-		
-		for (Bookmark bookmark : allWebLinks) {
-			result.add((WebLink)bookmark);
-		}
-		return result;
-	}
 	
-	public List<WebLink> getWebLinks(WebLink.DownloadStatus downloadStatus) {
-		List<WebLink> result = new ArrayList<>();
-		
-		List<WebLink> allWebLinks = getAllWebLinks();
-		
-		for(WebLink webLink : allWebLinks) {
-			if (webLink.getDownloadStatus().equals(downloadStatus)) {
-				result.add(webLink);
-			}
-		}
-		return result;
-	}
-
 	public void updateKidFriendlyStatus(Bookmark bookmark)  {
 		int kidFriendlyStatus = bookmark.getKidFriendlyStatus().ordinal();
 		long userId = bookmark.getKidFriendlyMarkedBy().getId();
@@ -297,7 +266,6 @@ public class BookmarkDao {
 	public Collection<Bookmark> getMovies(boolean isBookmarked, long userId) {
 		
 		//TODO add form for people to register
-		//TODO 
 		//TODO use security from user and authcontroller
 		//TODO only activate the server driver once (at login, then try to see if it works for lookup and such)
 		

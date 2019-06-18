@@ -69,9 +69,6 @@ public class BookmarkManager {
 		return webLink;
 	}
 
-	public List<List<Bookmark>> getBookmarks() { // this manager will incorporate the dao as NVC does
-		return dao.getBookmarks();
-	}
 
 	public void saveUserBookmark(User user, Bookmark bookmark) {
 		UserBookmark userBookmark = new UserBookmark();

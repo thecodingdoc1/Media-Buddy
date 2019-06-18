@@ -11,13 +11,10 @@ import constants.Gender;
 import constants.UserType;
 import entities.User;
 import managers.UserManager;
-import thrillio.DataStore;
+
 
 public class UserDao {
-	public List<User> getUsers() {
-		return DataStore.getUsers();
-	}
-	
+
 	public User getUser(long userId) {
 		User user = null;
 		

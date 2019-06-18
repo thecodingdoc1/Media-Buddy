@@ -1,8 +1,6 @@
 package entities;
 
-import partner.Shareable;
-
-public class WebLink extends Bookmark implements Shareable {
+public class WebLink extends Bookmark implements partners.Shareable {
 	private String url;
 	private String host;	
 	private String htmlPage;
