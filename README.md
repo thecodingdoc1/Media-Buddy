@@ -5,9 +5,10 @@ Added functionality and customizations to app to personalize it.
 
 # What I learned
 - Java fundamentals
-- SQL database implementation and utulization
+- SQL database implementation and utilization
 - JEE and JSE
 - JSP and Servlets
+- Tomcat
 
 # Future of project
 - Implementation of Spring MVC
