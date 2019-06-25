@@ -1,7 +1,7 @@
 # Media Buddy web project
 Simple bookmarking web application.
 Original idea and code from Java in Depth Udemy course.
-Added functionality and customizations to app to personalize it.
+Added functionality including addition of movies, ability to unsave books and movies, as well as ability to add new users.
 
 # What I learned
 - Java fundamentals
