@@ -1,5 +1,6 @@
 package managers;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import constants.Gender;
@@ -41,6 +42,11 @@ public class UserManager { // typically class name ends with manager or service,
 
 	public long authenticate(String email, String password) {
 		return dao.authenticate(email, StringUtil.encodePassword(password));
+		
+	}
+
+	public static User createUser(String firstName, String lastName, String email, String password) {
+		return dao.createUser(firstName, lastName, email, StringUtil.encodePassword(password));
 		
 	}
 }

@@ -72,4 +72,24 @@ public class UserDao {
 		
 		return -1; //means authentication failed
 	}
+
+	public User createUser(String firstName, String lastName, String email, String password) {
+		User user = null;
+		System.out.println(password);
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} //this has to be envoked only once, can optimize it to run once in a super type or some other class
+		
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jid_thrillio?useSSL=false", "root", "root");
+				Statement stmt = conn.createStatement();) {	
+			String query = "Insert into user values(id, '" + email + "', '" + password + "', '" + firstName + "', '" + lastName + "', null, null, NOW())";
+			stmt.executeUpdate(query);
+			} catch(Exception e ) {
+				e.printStackTrace();
+			}
+		
+		return user;
+}
 }

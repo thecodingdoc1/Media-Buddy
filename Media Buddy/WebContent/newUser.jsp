@@ -12,10 +12,22 @@
 		<a href="" style="font-family:garamond;font-size:34px;text-align:center;display:block;color:white;text-decoration: none;">Media Buddy</a></b>          
 	</div>
 	<br><br>
-	<form method="POST" action="<%=request.getContextPath()%>/auth">
+	<form method="POST" action="<%=request.getContextPath()%>/newUser/submit">
       <fieldset>
-	    <legend>Log In</legend>	    
+	    <legend>New User Registration Form</legend>	    
 	    <table>
+	    <tr>
+	    		<td><label>First Name:</label></td>
+        		<td>
+        			<input type="text" name="firstName"><br>        			
+        		</td>
+        	</tr>
+        	<tr>
+	    		<td><label>Last Name:</label></td>
+        		<td>
+        			<input type="text" name="lastName"><br>        			
+        		</td>
+        	</tr>
 	    	<tr>
 	    		<td><label>Email:</label></td>
         		<td>

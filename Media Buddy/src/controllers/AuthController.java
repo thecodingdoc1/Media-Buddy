@@ -13,7 +13,7 @@ import managers.UserManager;
 /**
  * Servlet implementation class AuthController
  */
-@WebServlet(urlPatterns = {"/auth", "/auth/logout"})
+@WebServlet(urlPatterns = {"/auth", "/auth/logout","/login"})
 public class AuthController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,10 +29,15 @@ public class AuthController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(!request.getServletPath().contains("logout")) {
+		if(request.getServletPath().contains("/login") ) {
+			request.getRequestDispatcher("/login.jsp").forward(request,  response);
+		}
+		if(!request.getServletPath().contains("/auth/logout")) {
 			//login
+
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
+			System.out.println("in authcontroller" + password);
 			
 			long userId = UserManager.getInstance().authenticate(email, password);
 			if (userId != -1) {

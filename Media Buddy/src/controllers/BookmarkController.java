@@ -16,7 +16,7 @@ import entities.User;
 import managers.BookmarkManager;
 import managers.UserManager;
 
-@WebServlet(urlPatterns = {"/bookmark", "/bookmark/savebook", "/bookmark/mybooks", "/bookmark/savemovie", "/bookmark/usmovie", "/bookmark/usbook"})
+@WebServlet(urlPatterns = {"/", "/bookmark", "/bookmark/savebook", "/bookmark/mybooks", "/bookmark/savemovie", "/bookmark/usmovie", "/bookmark/usbook"})
 public class BookmarkController extends HttpServlet { 
 	/*private static BookmarkController instance = new BookmarkController();
 	private BookmarkController() {}
@@ -109,7 +109,7 @@ public class BookmarkController extends HttpServlet {
 				 request.getRequestDispatcher("/browse.jsp").forward(request,  response);//may delete
 			 }
 		 } else {
-			 dispatcher = request.getRequestDispatcher("/login.jsp");
+			 dispatcher = request.getRequestDispatcher("/homepage.jsp");
 		 }
 		 
 		 dispatcher.forward(request,  response);
