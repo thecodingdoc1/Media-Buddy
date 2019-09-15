@@ -32,7 +32,6 @@ public class BookmarkManager {
 		movie.setId(id);
 		movie.setTitle(title);
 		movie.setImageUrl(imageUrl);
-		// movie.setProfileUrl(profileUrl);
 		movie.setReleaseYear(releaseYear);
 		movie.setActor(actor);
 		movie.setDirector(director);
@@ -48,7 +47,6 @@ public class BookmarkManager {
 		book.setId(id);
 		book.setTitle(title);
 		book.setImageUrl(imageUrl);
-		//book.setProfileUrl(profileUrl);
 		book.setPublicationYear(publicationYear);
 		book.setPublishers(publishers);
 		book.setAuthors(authors);
@@ -62,7 +60,6 @@ public class BookmarkManager {
 		WebLink webLink = new WebLink();
 		webLink.setId(id);
 		webLink.setTitle(title);
-		//webLink.setProfileUrl(profileUrl);
 		webLink.setUrl(url);
 		webLink.setHost(hosts);
 
@@ -78,7 +75,7 @@ public class BookmarkManager {
 		dao.saveUserBookmark(userBookmark);
 		}
 
-	public void setKidFriendlyStatus(User user, KidFriendlyStatus kidFriendlyStatus, Bookmark bookmark) { // saves and prints out which user did the marking of the KidFriendlyStatus
+	/*public void setKidFriendlyStatus(User user, KidFriendlyStatus kidFriendlyStatus, Bookmark bookmark) { // saves and prints out which user did the marking of the KidFriendlyStatus
 		bookmark.setKidFriendlyStatus(kidFriendlyStatus);
 		bookmark.setKidFriendlyMarkedBy(user);
 
@@ -98,7 +95,7 @@ public class BookmarkManager {
 			System.out.println(((WebLink)bookmark).getItemData()); 
 		}
 		dao.sharedByInfo(bookmark);
-	}
+	}*/
 
 	public Collection<Bookmark> getBooks(boolean isBookmarked, long userId) {
 		return dao.getBooks(isBookmarked, userId);

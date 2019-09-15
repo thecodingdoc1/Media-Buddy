@@ -34,7 +34,6 @@ public class WebLink extends Bookmark implements partners.Shareable {
 		return "WebLink [url=" + url + ", host=" + host + "]";
 	}
 
-	@Override
 	public boolean isKidFriendlyEligible() {
 		
 		if (url.contains("porn") || getTitle().contains("porn")

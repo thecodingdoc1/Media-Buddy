@@ -98,7 +98,7 @@
 				</table>
 			</div>
 	    </c:when>
-	    <c:when test="${!empty(movies)}">
+	   <c:when test="${!empty(movies)}">
 	    <div class="column">
 				<div style="font-size: 24px;color: #333333;padding: 15px 0px 0px;border-bottom: #333333 1px solid;clear: both;">Saved Books</div>
 				<br><br>

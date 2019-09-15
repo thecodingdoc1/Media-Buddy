@@ -6,17 +6,17 @@ public abstract class Bookmark {
 	private long id;
 	private String title;
 	private String profileUrl;
-	private KidFriendlyStatus kidFriendlyStatus = KidFriendlyStatus.UNKNOWN; // can be unknown, approved, or rejected- is IsKidFriendlyEligible class of constants
-	private User kidFriendlyMarkedBy;
-	private User sharedBy;
+	//private KidFriendlyStatus kidFriendlyStatus = KidFriendlyStatus.UNKNOWN; // can be unknown, approved, or rejected- is IsKidFriendlyEligible class of constants
+	//private User kidFriendlyMarkedBy;
+	//private User sharedBy;
 
-	public KidFriendlyStatus getKidFriendlyStatus() {
+	/*public KidFriendlyStatus getKidFriendlyStatus() {
 		return kidFriendlyStatus;
 	}
 
 	public void setKidFriendlyStatus(KidFriendlyStatus kidFriendlyStatus) {
 		this.kidFriendlyStatus = kidFriendlyStatus;
-	}
+	}*/
 
 	public long getId() {
 		return id;
@@ -42,9 +42,9 @@ public abstract class Bookmark {
 		this.profileUrl = profileUrl;
 	}
 	
-	public abstract boolean isKidFriendlyEligible();
+	//public abstract boolean isKidFriendlyEligible();
 
-	public User getKidFriendlyMarkedBy() {
+	/*public User getKidFriendlyMarkedBy() {
 		return kidFriendlyMarkedBy;
 	}
 
@@ -58,5 +58,5 @@ public abstract class Bookmark {
 
 	public void setSharedBy(User sharedBy) {
 		this.sharedBy = sharedBy;
-	}
+	}*/
 }

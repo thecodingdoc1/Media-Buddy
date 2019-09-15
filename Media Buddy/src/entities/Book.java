@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import constants.BookGenre;
 
-public class Book extends Bookmark implements partners.Shareable{
+public class Book extends Bookmark{
 	private String title;
 	private int publicationYear;
 	private String publishers;
@@ -62,6 +62,14 @@ public class Book extends Bookmark implements partners.Shareable{
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 
 	@Override
 	public String toString() {
@@ -69,15 +77,15 @@ public class Book extends Bookmark implements partners.Shareable{
 				+ Arrays.toString(authors) + ", genre=" + genre + ", amazonRating=" + amazonRating + "]";
 	}
 
-	@Override
+	/*@Override
 	public boolean isKidFriendlyEligible() {
 		if (genre.equals(BookGenre.PHILOSOPHY) || genre.equals(BookGenre.SELF_HELP)) {
 			return false;
 		}
 		return true;
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public String getItemData() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("<item>");
@@ -91,13 +99,5 @@ public class Book extends Bookmark implements partners.Shareable{
 		builder.append("</item>");
 		
 		return builder.toString();
-	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
+	}*/
 }

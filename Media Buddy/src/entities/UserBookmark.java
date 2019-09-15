@@ -18,5 +18,6 @@ public class UserBookmark { // will maintain relationship between user and bookm
 
 	public void setBookmark(Bookmark bookmark) {
 		this.bookmark = bookmark;
+		System.out.println("Test");
 	}
 }

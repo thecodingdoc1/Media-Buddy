@@ -26,8 +26,8 @@ public class BookmarkDao {
 				Statement stmt = conn.createStatement()) {
 			if (userBookmark.getBookmark() instanceof Book) {
 				saveUserBook(userBookmark, stmt);
-			} else if (userBookmark.getBookmark() instanceof WebLink) {
-				saveUserWebLink(userBookmark, stmt);
+			//} else if (userBookmark.getBookmark() instanceof WebLink) {
+				//saveUserWebLink(userBookmark, stmt);
 			} else {
 				saveUserMovie(userBookmark, stmt);
 				
@@ -41,15 +41,15 @@ public class BookmarkDao {
 	public void unsaveUserBookmark(UserBookmark userBookmark) {
 		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jid_thrillio?useSSL=false", "root", "root") ;
 				Statement stmt = conn.createStatement()) {
-			System.out.println("ran unsaveuserbookmark in Dao");
+			//System.out.println("ran unsaveuserbookmark in Dao");
 			if (userBookmark.getBookmark() instanceof Book) {
-				System.out.println("went into book if statement");
+				//System.out.println("went into book if statement");
 				unsaveUserBook(userBookmark, stmt);
 			} else if (userBookmark.getBookmark() instanceof Movie) {
-				System.out.println("went into movie if 1");
+				//System.out.println("went into movie if 1");
 				unsaveUserMovie(userBookmark, stmt);
 			} else {
-				System.out.println("went into else of unsaveUserBookmark in dao");
+				//System.out.println("went into else of unsaveUserBookmark in dao");
 				unsaveUserMovie(userBookmark, stmt);
 				
 			}
@@ -62,7 +62,7 @@ public class BookmarkDao {
 		
 		String query = "delete from User_Movie where user_id =" + userBookmark.getUser().getId() + " and movie_id= " + userBookmark.getBookmark().getId();
 		stmt.executeUpdate(query);
-		System.out.println("executed delete query in unsaveusermovie");
+		//System.out.println("executed delete query in unsaveusermovie");
 	}
 
 	private void unsaveUserBook(UserBookmark userBookmark, Statement stmt) throws SQLException {
@@ -70,11 +70,11 @@ public class BookmarkDao {
 		stmt.executeUpdate(query);
 	}
 
-	private void saveUserWebLink(UserBookmark userBookmark, Statement stmt) throws SQLException {
+	/*private void saveUserWebLink(UserBookmark userBookmark, Statement stmt) throws SQLException {
 		String query = "insert into User_WebLink (user_id, weblink_id) values (" + userBookmark.getUser().getId() + " , " + userBookmark.getBookmark().getId() + ")";
 		stmt.executeUpdate(query);
 		
-	}
+	}*/
 
 	private void saveUserMovie(UserBookmark userBookmark, Statement stmt) throws SQLException {
 		String query = "insert into User_Movie (user_id, movie_id) values (" + userBookmark.getUser().getId() + " , " + userBookmark.getBookmark().getId() + ")";
@@ -89,7 +89,7 @@ public class BookmarkDao {
 	}
 
 	
-	public void updateKidFriendlyStatus(Bookmark bookmark)  {
+	/*public void updateKidFriendlyStatus(Bookmark bookmark)  {
 		int kidFriendlyStatus = bookmark.getKidFriendlyStatus().ordinal();
 		long userId = bookmark.getKidFriendlyMarkedBy().getId();
 		
@@ -129,7 +129,7 @@ public class BookmarkDao {
 		}
 		
 		
-	}
+	}*/
 
 	public Collection<Bookmark> getBooks(boolean isBookmarked, long userId) {
 			
@@ -265,8 +265,6 @@ public class BookmarkDao {
 
 	public Collection<Bookmark> getMovies(boolean isBookmarked, long userId) {
 		
-		//TODO add form for people to register
-		//TODO use security from user and authcontroller
 		//TODO only activate the server driver once (at login, then try to see if it works for lookup and such)
 		
 		

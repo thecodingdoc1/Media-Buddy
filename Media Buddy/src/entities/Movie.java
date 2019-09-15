@@ -68,13 +68,13 @@ public class Movie extends Bookmark {
 				+ Arrays.toString(director) + ", genre=" + genre + ", imdbRating=" + imdbRating + "]";
 	}
 
-	@Override
+	/*@Override
 	public boolean isKidFriendlyEligible() {
 		if (genre.equals(MovieGenre.HORROR) || genre.equals(MovieGenre.THRILLERS)) {
 			return false;
 		}
 		return true;
-	}
+	}*/
 
 	public String getImageUrl() {
 		return imageUrl;

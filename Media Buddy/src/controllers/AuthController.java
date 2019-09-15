@@ -30,14 +30,15 @@ public class AuthController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getServletPath().contains("/login") ) {
+			System.out.println("In /login");
 			request.getRequestDispatcher("/login.jsp").forward(request,  response);
 		}
-		if(!request.getServletPath().contains("/auth/logout")) {
+		else if(!request.getServletPath().contains("/auth/logout")) {
 			//login
 
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
-			System.out.println("in authcontroller" + password);
+			System.out.println("in authcontroller " + password);
 			
 			long userId = UserManager.getInstance().authenticate(email, password);
 			if (userId != -1) {
@@ -60,6 +61,7 @@ public class AuthController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//since method is post, goes to doPost method
+		System.out.println("Going through doPost method");
 		doGet(request, response);
 	}
 

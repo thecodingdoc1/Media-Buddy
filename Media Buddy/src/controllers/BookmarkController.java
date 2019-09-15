@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import constants.KidFriendlyStatus;
 import entities.Bookmark;
 import entities.User;
 import managers.BookmarkManager;
 import managers.UserManager;
+
+
 
 @WebServlet(urlPatterns = {"/", "/bookmark", "/bookmark/savebook", "/bookmark/mybooks", "/bookmark/savemovie", "/bookmark/usmovie", "/bookmark/usbook"})
 public class BookmarkController extends HttpServlet { 
@@ -46,7 +47,7 @@ public class BookmarkController extends HttpServlet {
 				 Collection<Bookmark> listM = BookmarkManager.getInstance().getMovies(true, userId);
 				 request.setAttribute("movies",  listM);
 			 } else if(request.getServletPath().contains("mybooks")) {
-				 //mybooks
+				 //display saved movies and books
 				 dispatcher = request.getRequestDispatcher("/mybooks.jsp");
 				 Collection<Bookmark> list = BookmarkManager.getInstance().getBooks(true, userId);
 				 request.setAttribute("books",  list);
@@ -55,7 +56,7 @@ public class BookmarkController extends HttpServlet {
 	
 				 request.setAttribute("movies",  listM);
 			 } else if(request.getServletPath().contains("savemovie")) {
-				
+				//save a movie that the user selected
 				 dispatcher =request.getRequestDispatcher("/mybooks.jsp");
 				 String mid = request.getParameter("mid");
 				 User user = UserManager.getInstance().getUser(userId);
@@ -70,7 +71,7 @@ public class BookmarkController extends HttpServlet {
 				 Collection<Bookmark> listB = BookmarkManager.getInstance().getBooks(true, userId);
 					request.setAttribute("books",  listB);
 			 } else if(request.getServletPath().contains("usmovie")){ 
-				 
+				 //unsave movie
 				
 				 dispatcher = request.getRequestDispatcher("/mybooks.jsp");
 				 String mid = request.getParameter("mid");
@@ -85,7 +86,7 @@ public class BookmarkController extends HttpServlet {
 				Collection<Bookmark> listB = BookmarkManager.getInstance().getBooks(true, userId);
 				request.setAttribute("books",  listB);
 			 } else if (request.getServletPath().contains("usbook")) {
-				 
+				 //unsave book
 				 dispatcher = request.getRequestDispatcher("/mybooks.jsp");
 				 String bid = request.getParameter("bid");
 				 User user = UserManager.getInstance().getUser(userId);
@@ -98,7 +99,7 @@ public class BookmarkController extends HttpServlet {
 				Collection<Bookmark> listM = BookmarkManager.getInstance().getMovies(true, userId);
 				request.setAttribute("movies",  listM);
 			 }else {
-				 //browse
+				 //browse books and movies that are not saved
 				 dispatcher = request.getRequestDispatcher("/mybooks.jsp");
 				 Collection<Bookmark> list = BookmarkManager.getInstance().getBooks(false, userId);
 				 request.setAttribute("books",  list);
@@ -109,6 +110,7 @@ public class BookmarkController extends HttpServlet {
 				 request.getRequestDispatcher("/browse.jsp").forward(request,  response);//may delete
 			 }
 		 } else {
+			 System.out.println("Testing");
 			 dispatcher = request.getRequestDispatcher("/homepage.jsp");
 		 }
 		 
@@ -122,12 +124,12 @@ public class BookmarkController extends HttpServlet {
 		BookmarkManager.getInstance().saveUserBookmark(user, bookmark);
 		
 	}
-	public void setKidFriendlyStatus(User user, KidFriendlyStatus kidFriendlyStatus, Bookmark bookmark)  {
+	/*public void setKidFriendlyStatus(User user, KidFriendlyStatus kidFriendlyStatus, Bookmark bookmark)  {
 		BookmarkManager.getInstance().setKidFriendlyStatus(user, kidFriendlyStatus, bookmark);
 		
 	}
-	public void share(User user, Bookmark bookmark) { // simple a relay to the manager
+	/*public void share(User user, Bookmark bookmark) { // simple a relay to the manager
 		BookmarkManager.getInstance().share(user, bookmark);
 		
-	}
+	}*/
 }
