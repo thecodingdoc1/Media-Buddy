@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 import constants.MovieGenre;
 
+
+//@Entity
+//@Table(name="movie")
 public class Movie extends Bookmark {
 	private String title;
 	private int releaseYear;

@@ -3,6 +3,8 @@ package entities;
 import constants.Gender;
 import constants.UserType;
 
+//@Entity
+//@Table(name="user")
 public class User {
 	private long id; // long instead of int because in database, may have millions of users and int may be restricted so long is prefered
 	private String email;

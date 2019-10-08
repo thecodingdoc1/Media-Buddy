@@ -1,5 +1,7 @@
 package entities;
 
+//@Entity
+//@Table(name="weblink")
 public class WebLink extends Bookmark implements partners.Shareable {
 	private String url;
 	private String host;	

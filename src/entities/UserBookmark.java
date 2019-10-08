@@ -1,5 +1,7 @@
 package entities;
 
+//@Entity
+//@Table(name="userBookmark")
 public class UserBookmark { // will maintain relationship between user and bookmark
 	private User user;
 	private Bookmark bookmark;

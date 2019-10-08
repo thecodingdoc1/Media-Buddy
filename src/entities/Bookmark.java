@@ -1,7 +1,11 @@
 package entities;
 
+
+
 import constants.KidFriendlyStatus;
 
+//@Entity
+//@Table(name="bookmark")
 public abstract class Bookmark {
 	private long id;
 	private String title;
