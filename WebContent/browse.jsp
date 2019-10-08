@@ -11,7 +11,6 @@
   box-sizing: border-box;
 }
 
-
 .column {
   float: left;
   width: 50%;
