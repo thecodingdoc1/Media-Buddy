@@ -14,6 +14,8 @@ import managers.UserManager;
 @WebServlet (urlPatterns = {"/newUser", "/newUser/submit"})
 public class NewUserController extends HttpServlet {
 
+
+
 	private static UserDao dao = new UserDao();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
